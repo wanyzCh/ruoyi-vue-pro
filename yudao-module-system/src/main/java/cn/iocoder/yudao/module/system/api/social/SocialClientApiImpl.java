@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.api.social;
 
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
@@ -12,7 +13,6 @@ import cn.iocoder.yudao.module.system.service.social.SocialUserService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxJsapiSignature;
-import me.chanjar.weixin.common.bean.subscribemsg.TemplateInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -21,11 +21,13 @@ import java.util.List;
 import static cn.hutool.core.collection.CollUtil.findOne;
 import static cn.iocoder.yudao.framework.common.util.collection.CollectionUtils.convertList;
 
+*/
 /**
  * 社交应用的 API 实现类
  *
  * @author 芋道源码
- */
+ *//*
+
 @Service
 @Validated
 @Slf4j
@@ -40,15 +42,18 @@ public class SocialClientApiImpl implements SocialClientApi {
     public String getAuthorizeUrl(Integer socialType, Integer userType, String redirectUri) {
         return socialClientService.getAuthorizeUrl(socialType, userType, redirectUri);
     }
-
+*/
+/*
     @Override
     public SocialWxJsapiSignatureRespDTO createWxMpJsapiSignature(Integer userType, String url) {
         WxJsapiSignature signature = socialClientService.createWxMpJsapiSignature(userType, url);
         return BeanUtils.toBean(signature, SocialWxJsapiSignatureRespDTO.class);
-    }
+    }*//*
+
 
     //======================= 微信小程序独有 =======================
-
+*/
+/*
     @Override
     public SocialWxPhoneNumberInfoRespDTO getWxMaPhoneNumberInfo(Integer userType, String phoneCode) {
         WxMaPhoneNumberInfo info = socialClientService.getWxMaPhoneNumberInfo(userType, phoneCode);
@@ -102,6 +107,8 @@ public class SocialClientApiImpl implements SocialClientApi {
     @Override
     public void notifyWxaOrderConfirmReceive(Integer userType, SocialWxaOrderNotifyConfirmReceiveReqDTO reqDTO) {
         socialClientService.notifyWxaOrderConfirmReceive(userType, reqDTO);
-    }
+    }*//*
+
 
 }
+*/

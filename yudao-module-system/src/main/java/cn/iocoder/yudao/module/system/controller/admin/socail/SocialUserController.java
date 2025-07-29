@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.controller.admin.socail;
 
 import cn.iocoder.yudao.framework.common.enums.UserTypeEnum;
@@ -80,3 +81,4 @@ public class SocialUserController {
     }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.controller.admin.socail;
 
 import cn.iocoder.yudao.framework.common.pojo.CommonResult;
@@ -92,3 +93,4 @@ public class SocialClientController {
     }
 
 }
+*/

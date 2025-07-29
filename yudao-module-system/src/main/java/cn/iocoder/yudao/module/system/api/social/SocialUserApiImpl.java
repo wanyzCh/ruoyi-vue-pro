@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.api.social;
 
 import cn.iocoder.yudao.module.system.api.social.dto.SocialUserBindReqDTO;
@@ -9,11 +10,13 @@ import org.springframework.validation.annotation.Validated;
 
 import jakarta.annotation.Resource;
 
+*/
 /**
  * 社交用户的 API 实现类
  *
  * @author 芋道源码
- */
+ *//*
+
 @Service
 @Validated
 public class SocialUserApiImpl implements SocialUserApi {
@@ -43,3 +46,4 @@ public class SocialUserApiImpl implements SocialUserApi {
     }
 
 }
+*/

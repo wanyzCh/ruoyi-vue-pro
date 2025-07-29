@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.service.social;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
@@ -73,31 +74,37 @@ import static cn.iocoder.yudao.framework.common.util.json.JsonUtils.toJsonString
 import static cn.iocoder.yudao.module.system.enums.ErrorCodeConstants.*;
 import static java.util.Collections.singletonList;
 
+*/
 /**
  * 社交应用 Service 实现类
  *
  * @author 芋道源码
- */
+ *//*
+
 @Service
 @Slf4j
 public class SocialClientServiceImpl implements SocialClientService {
 
-    /**
+    */
+/**
      * 小程序码要打开的小程序版本
      *
      * 1. release：正式版
      * 2. trial：体验版
      * 3. developer：开发版
-     */
+     *//*
+
     @Value("${yudao.wxa-code.env-version:release}")
     public String envVersion;
-    /**
+    */
+/**
      * 订阅消息跳转小程序类型
      *
      * 1. developer：开发版
      * 2. trial：体验版
      * 3. formal：正式版
-     */
+     *//*
+
     @Value("${yudao.wxa-subscribe-message.miniprogram-state:formal}")
     public String miniprogramState;
 
@@ -110,14 +117,16 @@ public class SocialClientServiceImpl implements SocialClientService {
     private WxMpProperties wxMpProperties;
     @Resource
     private StringRedisTemplate stringRedisTemplate; // WxMpService 需要使用到，所以在 Service 注入了它
-    /**
+    */
+/**
      * 缓存 WxMpService 对象
      *
      * key：使用微信公众号的 appId + secret 拼接，即 {@link SocialClientDO} 的 clientId 和 clientSecret 属性。
      * 为什么 key 使用这种格式？因为 {@link SocialClientDO} 在管理后台可以变更，通过这个 key 存储它的单例。
      *
      * 为什么要做 WxMpService 缓存？因为 WxMpService 构建成本比较大，所以尽量保证它是单例。
-     */
+     *//*
+
     private final LoadingCache<String, WxMpService> wxMpServiceCache = CacheUtils.buildAsyncReloadingCache(
             Duration.ofSeconds(10L),
             new CacheLoader<String, WxMpService>() {
@@ -134,11 +143,13 @@ public class SocialClientServiceImpl implements SocialClientService {
     private WxMaService wxMaService;
     @Resource
     private WxMaProperties wxMaProperties;
-    /**
+    */
+/**
      * 缓存 WxMaService 对象
      *
      * 说明同 {@link #wxMpServiceCache} 变量
-     */
+     *//*
+
     private final LoadingCache<String, WxMaService> wxMaServiceCache = CacheUtils.buildAsyncReloadingCache(
             Duration.ofSeconds(10L),
             new CacheLoader<String, WxMaService>() {
@@ -178,13 +189,15 @@ public class SocialClientServiceImpl implements SocialClientService {
         return (AuthUser) authResponse.getData();
     }
 
-    /**
+    */
+/**
      * 构建 AuthRequest 对象，支持多租户配置
      *
      * @param socialType 社交类型
      * @param userType   用户类型
      * @return AuthRequest 对象
-     */
+     *//*
+
     @VisibleForTesting
     AuthRequest buildAuthRequest(Integer socialType, Integer userType) {
         // 1. 先查找默认的配置项，从 application-*.yaml 中读取
@@ -218,12 +231,14 @@ public class SocialClientServiceImpl implements SocialClientService {
         return service.createJsapiSignature(url);
     }
 
-    /**
+    */
+/**
      * 获得 clientId + clientSecret 对应的 WxMpService 对象
      *
      * @param userType 用户类型
      * @return WxMpService 对象
-     */
+     *//*
+
     @VisibleForTesting
     WxMpService getWxMpService(Integer userType) {
         // 第一步，查询 DB 的配置项，获得对应的 WxMpService 对象
@@ -236,13 +251,15 @@ public class SocialClientServiceImpl implements SocialClientService {
         return wxMpService;
     }
 
-    /**
+    */
+/**
      * 创建 clientId + clientSecret 对应的 WxMpService 对象
      *
      * @param clientId     微信公众号 appId
      * @param clientSecret 微信公众号 secret
      * @return WxMpService 对象
-     */
+     *//*
+
     public WxMpService buildWxMpService(String clientId, String clientSecret) {
         // 第一步，创建 WxMpRedisConfigImpl 对象
         WxMpRedisConfigImpl configStorage = new WxMpRedisConfigImpl(
@@ -315,14 +332,16 @@ public class SocialClientServiceImpl implements SocialClientService {
         }
     }
 
-    /**
+    */
+/**
      * 构建发送消息请求参数
      *
      * @param reqDTO     请求
      * @param templateId 模版编号
      * @param openId     会员 openId
      * @return 微信小程序订阅消息请求参数
-     */
+     *//*
+
     private WxMaSubscribeMessage buildMessageSendReqDTO(SocialWxaSubscribeMessageSendReqDTO reqDTO,
                                                         String templateId, String openId) {
         // 设置订阅消息基本参数
@@ -395,12 +414,14 @@ public class SocialClientServiceImpl implements SocialClientService {
         }
     }
 
-    /**
+    */
+/**
      * 获得 clientId + clientSecret 对应的 WxMpService 对象
      *
      * @param userType 用户类型
      * @return WxMpService 对象
-     */
+     *//*
+
     @VisibleForTesting
     WxMaService getWxMaService(Integer userType) {
         // 第一步，查询 DB 的配置项，获得对应的 WxMaService 对象
@@ -413,13 +434,15 @@ public class SocialClientServiceImpl implements SocialClientService {
         return wxMaService;
     }
 
-    /**
+    */
+/**
      * 创建 clientId + clientSecret 对应的 WxMaService 对象
      *
      * @param clientId     微信小程序 appId
      * @param clientSecret 微信小程序 secret
      * @return WxMaService 对象
-     */
+     *//*
+
     private WxMaService buildWxMaService(String clientId, String clientSecret) {
         // 第一步，创建 WxMaRedisBetterConfigImpl 对象
         WxMaRedisBetterConfigImpl configStorage = new WxMaRedisBetterConfigImpl(
@@ -478,14 +501,16 @@ public class SocialClientServiceImpl implements SocialClientService {
         }
     }
 
-    /**
+    */
+/**
      * 校验社交应用是否重复，需要保证 userType + socialType 唯一
      * 原因是，不同端（userType）选择某个社交登录（socialType）时，需要通过 {@link #buildAuthRequest(Integer, Integer)} 构建对应的请求
      *
      * @param id         编号
      * @param userType   用户类型
      * @param socialType 社交类型
-     */
+     *//*
+
     private void validateSocialClientUnique(Long id, Integer userType, Integer socialType) {
         SocialClientDO client = socialClientMapper.selectBySocialTypeAndUserType(
                 socialType, userType);
@@ -509,3 +534,4 @@ public class SocialClientServiceImpl implements SocialClientService {
     }
 
 }
+*/

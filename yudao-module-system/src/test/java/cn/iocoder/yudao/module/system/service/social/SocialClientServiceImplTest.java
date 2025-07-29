@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.service.social;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
@@ -41,11 +42,13 @@ import static cn.iocoder.yudao.module.system.enums.ErrorCodeConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+*/
 /**
  * {@link SocialClientServiceImpl} 的单元测试类
  *
  * @author 芋道源码
- */
+ *//*
+
 @Import(SocialClientServiceImpl.class)
 public class SocialClientServiceImplTest extends BaseDbUnitTest {
 
@@ -469,3 +472,4 @@ public class SocialClientServiceImplTest extends BaseDbUnitTest {
     }
 
 }
+*/

@@ -17,7 +17,6 @@ import cn.iocoder.yudao.module.system.service.auth.AdminAuthService;
 import cn.iocoder.yudao.module.system.service.permission.MenuService;
 import cn.iocoder.yudao.module.system.service.permission.PermissionService;
 import cn.iocoder.yudao.module.system.service.permission.RoleService;
-import cn.iocoder.yudao.module.system.service.social.SocialClientService;
 import cn.iocoder.yudao.module.system.service.user.AdminUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -56,8 +55,8 @@ public class AuthController {
     private MenuService menuService;
     @Resource
     private PermissionService permissionService;
-    @Resource
-    private SocialClientService socialClientService;
+//    @Resource
+//    private SocialClientService socialClientService;
 
     @Resource
     private SecurityProperties securityProperties;
@@ -150,6 +149,7 @@ public class AuthController {
     }
 
     // ========== 社交登录相关 ==========
+/*
 
     @GetMapping("/social-auth-redirect")
     @PermitAll
@@ -170,5 +170,6 @@ public class AuthController {
     public CommonResult<AuthLoginRespVO> socialQuickLogin(@RequestBody @Valid AuthSocialLoginReqVO reqVO) {
         return success(authService.socialLogin(reqVO));
     }
+*/
 
 }

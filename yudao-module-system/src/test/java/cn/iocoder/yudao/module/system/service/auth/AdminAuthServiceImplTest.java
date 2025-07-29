@@ -17,7 +17,6 @@ import cn.iocoder.yudao.module.system.enums.social.SocialTypeEnum;
 import cn.iocoder.yudao.module.system.service.logger.LoginLogService;
 import cn.iocoder.yudao.module.system.service.member.MemberService;
 import cn.iocoder.yudao.module.system.service.oauth2.OAuth2TokenService;
-import cn.iocoder.yudao.module.system.service.social.SocialUserService;
 import cn.iocoder.yudao.module.system.service.user.AdminUserService;
 import com.anji.captcha.model.common.ResponseModel;
 import com.anji.captcha.service.CaptchaService;
@@ -28,7 +27,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
-
 import static cn.hutool.core.util.RandomUtil.randomEle;
 import static cn.iocoder.yudao.framework.test.core.util.AssertUtils.assertPojoEquals;
 import static cn.iocoder.yudao.framework.test.core.util.AssertUtils.assertServiceException;
@@ -51,8 +49,8 @@ public class AdminAuthServiceImplTest extends BaseDbUnitTest {
     private CaptchaService captchaService;
     @MockBean
     private LoginLogService loginLogService;
-    @MockBean
-    private SocialUserService socialUserService;
+//    @MockBean
+//    private SocialUserService socialUserService;
     @MockBean
     private SmsCodeApi smsCodeApi;
     @MockBean
@@ -176,9 +174,9 @@ public class AdminAuthServiceImplTest extends BaseDbUnitTest {
                         && o.getResult().equals(LoginResultEnum.SUCCESS.getResult())
                         && o.getUserId().equals(user.getId()))
         );
-        verify(socialUserService).bindSocialUser(eq(new SocialUserBindReqDTO(
+        /*verify(socialUserService).bindSocialUser(eq(new SocialUserBindReqDTO(
                 user.getId(), UserTypeEnum.ADMIN.getValue(),
-                reqVO.getSocialType(), reqVO.getSocialCode(), reqVO.getSocialState())));
+                reqVO.getSocialType(), reqVO.getSocialCode(), reqVO.getSocialState())));*/
     }
 
     @Test
@@ -234,7 +232,7 @@ public class AdminAuthServiceImplTest extends BaseDbUnitTest {
         );
     }
 
-    @Test
+  /*  @Test
     public void testSocialLogin_success() {
         // 准备参数
         AuthSocialLoginReqVO reqVO = randomPojo(AuthSocialLoginReqVO.class);
@@ -260,7 +258,7 @@ public class AdminAuthServiceImplTest extends BaseDbUnitTest {
                         && o.getResult().equals(LoginResultEnum.SUCCESS.getResult())
                         && o.getUserId().equals(user.getId()))
         );
-    }
+    }*/
 
     @Test
     public void testValidateCaptcha_successWithEnable() {

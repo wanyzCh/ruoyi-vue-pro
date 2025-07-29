@@ -1,3 +1,4 @@
+/*
 package cn.iocoder.yudao.module.system.service.social;
 
 import cn.hutool.core.collection.CollUtil;
@@ -28,11 +29,13 @@ import static cn.iocoder.yudao.framework.common.util.collection.CollectionUtils.
 import static cn.iocoder.yudao.framework.common.util.json.JsonUtils.toJsonString;
 import static cn.iocoder.yudao.module.system.enums.ErrorCodeConstants.SOCIAL_USER_NOT_FOUND;
 
+*/
 /**
  * 社交用户 Service 实现类
  *
  * @author 芋道源码
- */
+ *//*
+
 @Service
 @Validated
 @Slf4j
@@ -119,7 +122,8 @@ public class SocialUserServiceImpl implements SocialUserService {
                 socialUserBind != null ? socialUserBind.getUserId() : null);
     }
 
-    /**
+    */
+/**
      * 授权获得对应的社交用户
      * 如果授权失败，则会抛出 {@link ServiceException} 异常
      *
@@ -128,7 +132,8 @@ public class SocialUserServiceImpl implements SocialUserService {
      * @param code     授权码
      * @param state    state
      * @return 授权用户
-     */
+     *//*
+
     @NotNull
     public SocialUserDO authSocialUser(Integer socialType, Integer userType, String code, String state) {
         // 优先从 DB 中获取，因为 code 有且可以使用一次。
@@ -171,3 +176,4 @@ public class SocialUserServiceImpl implements SocialUserService {
     }
 
 }
+*/
